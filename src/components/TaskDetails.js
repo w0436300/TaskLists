@@ -32,7 +32,7 @@ function TaskDetails () {
                     <li><a><strong>Allowed Failed Distributions</strong> {taskDetails.allowed_failed_distributions} attempts</a></li>
                     <li><a><strong>Review Period:</strong> {taskDetails.audit_window}</a></li>
                     <li>
-                        <details open>
+                        <details className="dropdown">
                             <summary><strong>Available Balances:</strong>({Object.keys(taskDetails.available_balances || {}).length})</summary>
                             <ul>
                                 {Object.entries(taskDetails.available_balances || {}).map(([key, value]) => (
