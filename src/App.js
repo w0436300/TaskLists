@@ -9,7 +9,7 @@ import TaskDetails from './components/TaskDetails';
 function App() {
   return (
       
-        <main classNameN="relative flex flex-col min-h-screen">
+        <main className="relative flex flex-col min-h-screen">
           <NavBar />
           <Routes>
             <Route index element = {<TaskLists />} />
