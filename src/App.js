@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/output.css';
+import NavBar from './components/Header';
+import Footer from './components/Footer'
+import TaskLists from './components/TaskLists';
+import { Route, Routes } from 'react-router-dom';
+import TaskDetails from './components/TaskDetails';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      
+        <main classNameN="relative flex flex-col min-h-screen">
+          <NavBar />
+          <Routes>
+            <Route index element = {<TaskLists />} />
+            <Route path="/task/:taskId" element={<TaskDetails />} />
+          </Routes>
+          <Footer />
+        </main>
+       
+        
+      
+
+    
   );
 }
+
 
 export default App;

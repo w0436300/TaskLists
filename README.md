@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+1. 用React做架构
+2.要有Header(Nav Bar)和Footer,可以自由加入自己喜欢的design
+3.主要内容为Whitelisted Tasks Browser，要求：点击Task Name显示该任务的详细信息。
+Whitelisted Tasks 可以向 https://faucet-api.koii.network/api/get-whitelisted-task-ids发送GET请求获得
+任务的详细信息请使用'"@_koi/web3.js' library。示例如下：https://github.com/koii-network/task-middle-server-template/blob/main/helpers/getTaskData.js#L15-L17
+
+
+
