@@ -1,7 +1,7 @@
 import { useState } from 'react';
 const NavBar = () => {
     return (
-        <div className="navbar bg-blue-800">
+        <div className=" z-40 navbar bg-blue-800">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
@@ -12,8 +12,8 @@ const NavBar = () => {
                         <li>
                             <a href='https://docs.koii.network/'>DOCS</a>
                             <ul className="p-2">
-                            <li><a>Become a Webs Developer</a></li>
-                                <li><a>Earn Passive Income </a></li>
+                            <li><a href='https://docs.koii.network/quickstart/hello-world/introduction'>Become a Webs Developer</a></li>
+                            <li><a href='https://www.koii.network/node'>Earn Passive Income </a></li>
                             </ul>
                         </li>
                         <li><a href='https://www.koii.network/'>JOIN</a></li>
@@ -30,7 +30,7 @@ const NavBar = () => {
                             <ul className="p-2 text-black w-52">
                                 <li><a href='https://docs.koii.network/'>summary</a></li>
                                 <li><a href='https://docs.koii.network/quickstart/hello-world/introduction'>Become a Developer</a></li>
-                                <li><a href='https://koii.network/node'>Earn Passive Income </a></li>
+                                <li><a href='https://www.koii.network/node'>Earn Passive Income </a></li>
                             </ul>
                         </details>
                     </li>

@@ -35,7 +35,7 @@ function TaskLists() {
   };
 
   return (
-    <div>
+    <div className='z-30'>
       <h2 className="text-2xl font-bold mb-4">Whitelisted Tasks</h2>
       <ul className="menu bg-base-200 w-full rounded-box">
         {tasks.map((task) => (
