@@ -24,13 +24,13 @@ function TaskDetails () {
             <div>
                 <h1>Task Information</h1>       
                 <ul className="menu bg-base-200 rounded-box">
-                    <li><a><strong>Task Name:</strong> {TaskDetails.task_name}</a></li>
-                    <li><a><strong>Task Description:</strong> {TaskDetails.task_description}</a></li>
-                    <li><a><strong>Task Executable Network:</strong> {TaskDetails.task_executable_network}</a></li>
-                    <li><a><strong>Approved for Participation:</strong> {TaskDetails.is_whitelisted ? 'Yes' : 'No'}</a></li>
-                    <li><a><strong>Activity Status:</strong> {TaskDetails.is_active ? 'Currently Open' : 'Closed'}</a></li>
-                    <li><a><strong>Allowed Failed Distributions</strong> {TaskDetails.allowed_failed_distributions} attempts</a></li>
-                    <li><a><strong>Review Period:</strong> {TaskDetails.audit_window}</a></li>
+                    <li><a><strong>Task Name:</strong> {taskDetails.task_name}</a></li>
+                    <li><a><strong>Task Description:</strong> {taskDetails.task_description}</a></li>
+                    <li><a><strong>Task Executable Network:</strong> {taskDetails.task_executable_network}</a></li>
+                    <li><a><strong>Approved for Participation:</strong> {taskDetails.is_whitelisted ? 'Yes' : 'No'}</a></li>
+                    <li><a><strong>Activity Status:</strong> {taskDetails.is_active ? 'Currently Open' : 'Closed'}</a></li>
+                    <li><a><strong>Allowed Failed Distributions</strong> {taskDetails.allowed_failed_distributions} attempts</a></li>
+                    <li><a><strong>Review Period:</strong> {taskDetails.audit_window}</a></li>
                     <li>
                         <details open>
                             <summary><strong>Available Balances:</strong></summary>
@@ -41,10 +41,10 @@ function TaskDetails () {
                             </ul>
                         </details>
                     </li>                         
-                    <li><a><strong>Bounty per Round:</strong> {formatCurrency(TaskDetails.bounty_amount_per_round)} KOII</a></li>
-                    <li><a><strong>Minimum Stake Amount:</strong> {formatCurrency(TaskDetails.minimum_stake_amount)} KOII </a></li>
-                    <li><a><strong>Total Bounty Fund:</strong> {formatCurrency(TaskDetails.total_bounty_amount)} KOII</a> </li>
-                    <li><a><strong>Total Stake Amount:</strong> {formatCurrency(TaskDetails.total_stake_amount)} KOII</a></li>
+                    <li><a><strong>Bounty per Round:</strong> {formatCurrency(taskDetails.bounty_amount_per_round)} KOII</a></li>
+                    <li><a><strong>Minimum Stake Amount:</strong> {formatCurrency(taskDetails.minimum_stake_amount)} KOII </a></li>
+                    <li><a><strong>Total Bounty Fund:</strong> {formatCurrency(taskDetails.total_bounty_amount)} KOII</a> </li>
+                    <li><a><strong>Total Stake Amount:</strong> {formatCurrency(taskDetails.total_stake_amount)} KOII</a></li>
                 </ul>
                 
             </div>
