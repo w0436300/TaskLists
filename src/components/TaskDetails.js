@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import formatCurrency from './formatCurrency';
-import renderBalances from './renderBalances';
+// import renderBalances from './renderBalances';
 const { Connection, PublicKey } = require("@_koi/web3.js");
 
 
@@ -9,7 +9,7 @@ const { Connection, PublicKey } = require("@_koi/web3.js");
 
 function TaskDetails () {
     const [selectedTaskDetails, setSelectedTaskDetails] = useState(null);
-    const [showBalances, setShowBalances] = useState(false); 
+    // const [showBalances, setShowBalances] = useState(false); 
     const { taskId } = useParams()
 
     useEffect(() => {
@@ -29,28 +29,37 @@ function TaskDetails () {
       getTaskData();
     }, [taskId]);
 
-    const toggleBalancesVisibility = () => setShowBalances(!showBalances);
+    // const toggleBalancesVisibility = () => setShowBalances(!showBalances);
     
     return (
         <div>
         {selectedTaskDetails ? (
             <div>
-                <h1>Task Information</h1>
-                <p><strong>Task Name:</strong> {selectedTaskDetails.task_name}</p>
-                <p><strong>Task Description:</strong> {selectedTaskDetails.task_description}</p>
-                <p><strong>Task Executable Network:</strong> {selectedTaskDetails.task_executable_network}</p>
-                <p><strong>Approved for Participation:</strong> {selectedTaskDetails.is_whitelisted ? 'Yes' : 'No'}</p>
-                <p><strong>Activity Status:</strong> {selectedTaskDetails.is_active ? 'Currently Open' : 'Closed'}</p>
-                <p><strong>Allowed Failed Distributions</strong> {selectedTaskDetails.allowed_failed_distributions} attempts</p>
-                <p><strong>Review Period:</strong> {selectedTaskDetails.audit_window}</p>
-                <div onClick={toggleBalancesVisibility} style={{ cursor: 'pointer' }}>
-                        <strong >Available Balances:</strong><span className='text-red-700' >Click to view Details</span>
-                        {showBalances && <ul>{renderBalances(selectedTaskDetails.available_balances)}</ul>}
-                </div>
-                <p><strong>Bounty per Round:</strong> {formatCurrency(selectedTaskDetails.bounty_amount_per_round)} KOII</p>
-                <p><strong>Minimum Stake Amount:</strong> {formatCurrency(selectedTaskDetails.minimum_stake_amount)} KOII </p>
-                <p><strong>Total Bounty Fund:</strong> {formatCurrency(selectedTaskDetails.total_bounty_amount)} KOII </p>
-                <p><strong>Total Stake Amount:</strong> {formatCurrency(selectedTaskDetails.total_stake_amount)} KOII</p>
+                <h1>Task Information</h1>       
+                <ul className="menu bg-base-200 rounded-box">
+                    <li><a><strong>Task Name:</strong> {selectedTaskDetails.task_name}</a></li>
+                    <li><a><strong>Task Description:</strong> {selectedTaskDetails.task_description}</a></li>
+                    <li><a><strong>Task Executable Network:</strong> {selectedTaskDetails.task_executable_network}</a></li>
+                    <li><a><strong>Approved for Participation:</strong> {selectedTaskDetails.is_whitelisted ? 'Yes' : 'No'}</a></li>
+                    <li><a><strong>Activity Status:</strong> {selectedTaskDetails.is_active ? 'Currently Open' : 'Closed'}</a></li>
+                    <li><a><strong>Allowed Failed Distributions</strong> {selectedTaskDetails.allowed_failed_distributions} attempts</a></li>
+                    <li><a><strong>Review Period:</strong> {selectedTaskDetails.audit_window}</a></li>
+                    <li>
+                        <details open>
+                        <summary><strong>Available Balances:</strong></summary>
+                        <ul>
+                        {Object.entries(selectedTaskDetails.available_balances || {}).map(([key, value]) => (
+                                    <li key={key}><a>{`${key}: ${formatCurrency(value)}`}</a></li>
+                                ))}                     
+                        </ul>
+                        </details>
+                    </li>                              
+                    <li><a><strong>Bounty per Round:</strong> {formatCurrency(selectedTaskDetails.bounty_amount_per_round)} KOII</a></li>
+                    <li><a><strong>Minimum Stake Amount:</strong> {formatCurrency(selectedTaskDetails.minimum_stake_amount)} KOII </a></li>
+                    <li><a><strong>Total Bounty Fund:</strong> {formatCurrency(selectedTaskDetails.total_bounty_amount)} KOII</a> </li>
+                    <li><a><strong>Total Stake Amount:</strong> {formatCurrency(selectedTaskDetails.total_stake_amount)} KOII</a></li>
+                </ul>
+                
             </div>
         ) : (
             <p>Loading task details...</p>
