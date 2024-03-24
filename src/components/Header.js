@@ -27,7 +27,7 @@ const NavBar = () => {
                     <li>
                         <details>
                             <summary>DOCS</summary>
-                            <ul className="p-2 text-black">
+                            <ul className="p-2 text-black w-52">
                                 <li><a href='https://docs.koii.network/'>summary</a></li>
                                 <li><a href='https://docs.koii.network/quickstart/hello-world/introduction'>Become a Developer</a></li>
                                 <li><a href='https://koii.network/node'>Earn Passive Income </a></li>
