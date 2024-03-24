@@ -9,18 +9,16 @@ import TaskDetails from './components/TaskDetails';
 function App() {
   return (
       
-        <main className="relative flex flex-col min-h-screen">
+        <div className="relative flex flex-col min-h-screen">
           <NavBar />
-          <Routes>
+          <div className="flex-grow">
+            <Routes>
             <Route index element = {<TaskLists />} />
             <Route path="/task/:taskId" element={<TaskDetails />} />
           </Routes>
+          </div>  
           <Footer />
-        </main>
-       
-        
-      
-
+        </div>
     
   );
 }

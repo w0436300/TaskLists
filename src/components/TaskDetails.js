@@ -33,7 +33,7 @@ function TaskDetails () {
                     <li><a><strong>Review Period:</strong> {taskDetails.audit_window}</a></li>
                     <li>
                         <details open>
-                            <summary><strong>Available Balances:</strong></summary>
+                            <summary><strong>Available Balances:</strong>({Object.keys(taskDetails.available_balances || {}).length})</summary>
                             <ul>
                                 {Object.entries(taskDetails.available_balances || {}).map(([key, value]) => (
                                     <li key={key}>{`${key}: ${formatCurrency(value)}`}</li>
